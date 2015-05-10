@@ -14,7 +14,7 @@ setup(
     description='A python utility library containing functions for generating statistics on tile service usage.',
     long_description=open('README.md').read(),
     download_url="https://github.com/tilejet/tilejet-stats/zipball/master",
-    py_modules=["tilejet-stats"],
+    packages=["tilejetstats"],
     classifiers = [
         'Development Status :: 1 - Beta',
         'Intended Audience :: Developers',
