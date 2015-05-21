@@ -103,11 +103,15 @@ def getStat(collection, name, fallback):
         return fallback
 
 
-def getStats(collection, fallback):
+def getStats(collection, fallback, query=None):
     if not collection:
         return fallback
 
-    docs = collection.find()
+    docs = None
+    if query:
+        docs = collection.find(query)
+    else:
+        docs = collection.find()
 
     if docs:
         return docs
