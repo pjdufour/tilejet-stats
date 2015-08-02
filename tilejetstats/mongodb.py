@@ -2,10 +2,14 @@
 # Clear Tile Statistics
 
 def clearStats(list_stats, host='localhost', port='27017', dbname='tilejet', GEVENT_MONKEY_PATCH=False):
-    # Import Gevent and monkey patch
     if GEVENT_MONKEY_PATCH:
-        from gevent import monkey
-        monkey.patch_all()
+        # Import Gevent and monkey patch
+        try:
+            from gevent import monkey
+            monkey.patch_all()
+        except:
+            print "gevent monkey patch failed"
+
     # Update MongoDB
     from pymongo import MongoClient
     client = MongoClient(host, port)
@@ -18,10 +22,14 @@ def clearStats(list_stats, host='localhost', port='27017', dbname='tilejet', GEV
 # Build Tile Statistics
 def reloadStats(list_stats, host='localhost', port='27017', dbname='tilejet', collection_logs='logs', MONGO_AGG_FLAG=True, GEVENT_MONKEY_PATCH=False):
     print "Reloading Stats"
-    # Import Gevent and monkey patch
     if GEVENT_MONKEY_PATCH:
-        from gevent import monkey
-        monkey.patch_all()
+        # Import Gevent and monkey patch
+        try:
+            from gevent import monkey
+            monkey.patch_all()
+        except:
+            print "gevent monkey patch failed"
+
     # Update MongoDB
     from pymongo import MongoClient
     client = MongoClient(host, port)
